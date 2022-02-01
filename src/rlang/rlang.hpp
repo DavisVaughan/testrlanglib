@@ -1,9 +1,7 @@
 #ifndef RLANG_RLANG_HPP
 #define RLANG_RLANG_HPP
 
-#include <cmath>
 #include <exception>
-using std::isfinite;
 
 // Include Rinternals.h with C++ linkage to avoid rlang including it while
 // having C linkage, which causes issues with the GHA Mac machine
@@ -11,20 +9,7 @@ using std::isfinite;
 #include <Rinternals.h>
 
 extern "C" {
-#ifdef __clang__
-# pragma clang diagnostic push
-# pragma clang diagnostic ignored "-Wkeyword-macro"
-#endif
-
-#define class klass
-
-#ifdef __clang__
-# pragma clang diagnostic pop
-#endif
-
 #include <rlang.h>
-
-#undef class
 }
 
 static inline
