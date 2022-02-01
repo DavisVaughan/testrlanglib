@@ -4,6 +4,8 @@
 #include <R_ext/Rdynload.h>
 #include <R_ext/Visibility.h>
 
+r_obj* ffi_is_double(r_obj* x);
+
 r_obj* ffi_init_library(r_obj* ns) {
   r_init_library(ns);
   return r_null;
@@ -12,6 +14,7 @@ r_obj* ffi_init_library(r_obj* ns) {
 extern "C" {
 
 static const R_CallMethodDef CallEntries[] = {
+  {"ffi_is_double", (DL_FUNC) &ffi_is_double, 1},
   {"ffi_init_library", (DL_FUNC) &ffi_init_library, 1},
   {NULL, NULL, 0}
 };
